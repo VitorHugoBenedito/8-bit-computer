@@ -20,7 +20,7 @@
 
 ## Como funciona
 
-O módulo usa 3x NE555P, um pra cada função, seguindo o design do [Ben Eater](https://eater.net/8bit/clock) (mecânica de cada modo do 555 no [datasheet NE555](https://www.ti.com/lit/ds/symlink/[])).
+O módulo usa 3x NE555P, um pra cada função, seguindo o design do [Ben Eater](https://eater.net/8bit/clock) (mecânica de cada modo do 555 no [datasheet NE555](https://www.ti.com/lit/ds/symlink/[...])).
 
 | IC  | Modo        | Função                                              |
 |-----|-------------|------------------------------------------------------|
@@ -47,6 +47,14 @@ Terceira etapa:
 Quarta etapa:
 
 ![Quarta etapa](../assets/fourth-stage.jpeg)
+
+## Vídeos
+
+Observação: o GitHub permite abrir os arquivos de vídeo no visualizador com player ao clicar nos links abaixo.
+
+- Primeiro estágio (vídeo): [first-stage.mp4](../assets/first-stage.mp4)
+
+- Quarto estágio (vídeo): [fourth-stage.mp4](../assets/fourth-stage.mp4)
 
 ## Decisões de projeto
 
