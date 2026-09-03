@@ -20,7 +20,7 @@
 
 ## Como funciona
 
-O módulo usa 3x NE555P, um pra cada função, seguindo o design do [Ben Eater](https://eater.net/8bit/clock) (mecânica de cada modo do 555 no [datasheet NE555](https://www.ti.com/lit/ds/symlink/ne555.pdf), não repetida aqui):
+O módulo usa 3x NE555P, um pra cada função, seguindo o design do [Ben Eater](https://eater.net/8bit/clock) (mecânica de cada modo do 555 no [datasheet NE555](https://www.ti.com/lit/ds/symlink/[])).
 
 | IC  | Modo        | Função                                              |
 |-----|-------------|------------------------------------------------------|
@@ -28,7 +28,25 @@ O módulo usa 3x NE555P, um pra cada função, seguindo o design do [Ben Eater](
 | IC2 | Monoestável | Pulso único no clique manual (step-by-step)           |
 | IC3 | Biestável   | Debounce da chave que seleciona entre IC1 e IC2       |
 
-A seleção entre clock automático e manual usa lógica combinacional: quando a chave deslizante está numa posição, o sinal do IC1 (astável) passa pelas portas AND/OR até a saída; na outra posição, é o pulso do IC2 (manual) que passa. O 74LS04 inverte o sinal da chave pra gerar as duas condições complementares necessárias nas portas AND.
+A seleção entre clock automático e manual usa lógica combinacional: quando a chave deslizante está numa posição, o sinal do IC1 (astável) passa pelas portas AND/OR até a saída; na outra [...]
+
+## Imagens
+
+Primeira etapa:
+
+![Primeira etapa](../assets/first-stage.jpeg)
+
+Segunda etapa:
+
+![Segunda etapa](../assets/second-stage.jpeg)
+
+Terceira etapa:
+
+![Terceira etapa](../assets/third-stage.jpeg)
+
+Quarta etapa:
+
+![Quarta etapa](../assets/fourth-stage.jpeg)
 
 ## Decisões de projeto
 
@@ -38,6 +56,6 @@ Uma substituição em relação à lista original do Ben Eater, e por quê:
 
 ## Debug
 
-Usei o multímetro em modo de continuidade (buzzer) para testar trilha por trilha do protoboard MB-102, e identifiquei que a continuidade se interrompia na região central, comportamento padrão de protoboard (o canal central separa cada linha em dois nós elétricos independentes, para permitir que CI atravessem o canal). Como a configuração biestável precisava de sinal dos dois lados, adicionei jumpers para unificar os nós onde necessário. 
+Usei o multímetro em modo de continuidade (buzzer) para testar trilha por trilha do protoboard MB-102, e identifiquei que a continuidade se interrompia na região central, comportamento padrão d[...]
 
-Outro bug que eu descobri é que no segundo CI eu não estava realizando o pull-up adequadamente sobre o botão tátil (pino 2, trigger), então a tensão estava flutuante e não controlada. Com isso, o 555 entendia que o botão estava sendo pressionado o tempo todo, mantendo a saída (pino 3) sempre em nível alto. Como consequência, o pino 7 (discharge) nunca entrava em ação. 
+Outro bug que eu descobri é que no segundo CI eu não estava realizando o pull-up adequadamente sobre o botão tátil (pino 2, trigger), então a tensão estava flutuante e não controlada. Com i[...]
