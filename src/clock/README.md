@@ -28,6 +28,8 @@ O módulo usa 3x NE555P, um pra cada função, seguindo o design do [Ben Eater](
 | IC2 | Monoestável | Pulso único no clique manual (step-by-step)           |
 | IC3 | Biestável   | Debounce da chave que seleciona entre IC1 e IC2       |
 
+A seleção entre clock automático e manual usa lógica combinacional: quando a chave deslizante está numa posição, o sinal do IC1 (astável) passa pelas portas AND/OR até a saída; na outra posição, é o pulso do IC2 (manual) que passa. O 74LS04 inverte o sinal da chave pra gerar as duas condições complementares necessárias nas portas AND.
+
 ## Decisões de projeto
 
 Uma substituição em relação à lista original do Ben Eater, e por quê:
